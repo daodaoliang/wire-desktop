@@ -6,9 +6,6 @@
       "output": "wrap/dist"
     }
   },
-  "engines": {
-    "yarn": false
-  },
   "dependencies": {
     "debug": "3.1.0"
   },
@@ -65,23 +62,23 @@
     "build:win": "grunt win-prod",
     "bundle:dev": "webpack",
     "bundle": "webpack --env.production",
-    "edge": "npm run prestart && electron electron --inspect --devtools --enable-logging --env=https://wire-webapp-edge.zinfra.io",
-    "fix:js": "npm run test:js -- --fix",
-    "fix:other": "npm run prettier -- --write",
-    "fix": "npm run fix:js && npm run fix:other",
+    "edge": "yarn prestart && electron electron --inspect --devtools --enable-logging --env=https://wire-webapp-edge.zinfra.io",
+    "fix:js": "yarn test:js -- --fix",
+    "fix:other": "yarn prettier -- --write",
+    "fix": "yarn fix:js && yarn fix:other",
     "jest": "jest",
-    "localhost": "npm run prestart && electron electron --inspect --devtools --enable-logging --env=http://localhost:8080/app",
+    "localhost": "yarn prestart && electron electron --inspect --devtools --enable-logging --env=http://localhost:8080/app",
     "precommit": "lint-staged",
-    "preinstall": "cd electron && npm install",
-    "prestart": "npm run bundle:dev",
+    "preinstall": "cd electron && yarn",
+    "prestart": "yarn bundle:dev",
     "prettier": "prettier \"**/*.{json,md,css}\"",
-    "prod": "npm run prestart && electron electron --inspect --devtools --enable-logging --env=https://app.wire.com",
-    "staging": "npm run prestart && electron electron --inspect --devtools --enable-logging --env=https://wire-webapp-staging.zinfra.io",
+    "prod": "yarn prestart && electron electron --inspect --devtools --enable-logging --env=https://app.wire.com",
+    "staging": "yarn prestart && electron electron --inspect --devtools --enable-logging --env=https://wire-webapp-staging.zinfra.io",
     "start": "electron electron --inspect --devtools --enable-logging",
     "test:js": "eslint -c .eslintrc.json --ignore-path .gitignore --ignore-path .eslintignore \"**/*.js\"",
     "test:main": "electron-mocha --reporter spec tests/main",
-    "test:other": "npm run prettier -- --list-different",
+    "test:other": "yarn prettier -- --list-different",
     "test:react": "jest",
-    "test": "npm run test:other && npm run test:js && npm run test:react && npm run test:main"
+    "test": "yarn test:other && yarn test:js && yarn test:react && yarn test:main"
   }
 }
